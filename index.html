@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neha Porria | Portfolio</title>
+
+    <style>
+    /* Basic Setup */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+    }
+
+    :root {
+        --primary: #2563eb;
+        --dark: #0f172a;
+        --text: #475569;
+        --light: #f8fafc;
+        --white: #ffffff;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: var(--white);
+        color: var(--dark);
+        line-height: 1.7;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .section {
+        padding: 90px 8%;
+        scroll-margin-top: 75px;
+    }
+
+    /* Navigation Bar */
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: var(--white);
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
+    }
+
+    .navbar {
+        min-height: 75px;
+        padding: 15px 8%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 28px;
+        color: var(--dark);
+    }
+
+    .logo span {
+        color: var(--primary);
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+    }
+
+    .nav-links a {
+        color: var(--dark);
+        font-weight: 600;
+        transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: var(--primary);
+    }
+
+    .menu-btn {
+        display: none;
+        border: none;
+        background: none;
+        font-size: 28px;
+        cursor: pointer;
+    }
+
+    /* Home Section */
+    .home {
+        min-height: 85vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+        background: linear-gradient(135deg, #eff6ff, #ffffff);
+    }
+
+    .home-content {
+        max-width: 650px;
+    }
+
+    .welcome {
+        color: var(--primary);
+        font-weight: bold;
+        letter-spacing: 2px;
+        margin-bottom: 15px;
+    }
+
+    .home h1 {
+        font-size: clamp(36px, 5vw, 58px);
+        line-height: 1.2;
+        margin-bottom: 20px;
+    }
+
+    .home h1 span {
+        color: var(--primary);
+    }
+
+    .home h2 {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+
+    .intro {
+        color: var(--text);
+        max-width: 550px;
+        margin-bottom: 30px;
+    }
+
+    .buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 12px 25px;
+        background: var(--primary);
+        color: var(--white);
+        border: 2px solid var(--primary);
+        border-radius: 7px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+        font-size: 15px;
+    }
+
+    .btn:hover {
+        background: #1d4ed8;
+        border-color: #1d4ed8;
+        transform: translateY(-2px);
+    }
+
+    .btn-outline {
+        background: transparent;
+        color: var(--primary);
+    }
+
+    .btn-outline:hover {
+        color: var(--white);
+    }
+
+    .home-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .profile-circle {
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #2563eb, #93c5fd);
+        border: 10px solid #dbeafe;
+        box-shadow: 0 15px 35px rgba(37, 99, 235, 0.2);
+    }
+
+    .profile-circle span {
+        color: white;
+        font-size: 65px;
+        font-weight: bold;
+    }
+
+    /* Section Heading */
+    .section-heading {
+        text-align: center;
+        margin-bottom: 45px;
+    }
+
+    .section-heading p {
+        color: var(--primary);
+        font-weight: bold;
+        letter-spacing: 2px;
+        font-size: 13px;
+    }
+
+    .section-heading h2 {
+        font-size: 36px;
+        margin-top: 8px;
+    }
+
+    /* About Section */
+    .about {
+        background: var(--white);
+    }
+
+    .about-content {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 35px;
+        align-items: start;
+    }
+
+    .about-card {
+        padding: 30px;
+        border-radius: 12px;
+        background: var(--light);
+        border: 1px solid #e2e8f0;
+    }
+
+    .about-card h3 {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    .about-card p {
+        color: var(--text);
+        margin-bottom: 15px;
+    }
+
+    .about-card .btn {
+        margin-top: 10px;
+    }
+
+    .about-details {
+        display: grid;
+        gap: 15px;
+    }
+
+    .detail-box {
+        padding: 22px;
+        border-left: 4px solid var(--primary);
+        border-radius: 7px;
+        background: #eff6ff;
+    }
+
+    .detail-box h3 {
+        margin-bottom: 5px;
+    }
+
+    .detail-box p {
+        color: var(--text);
+    }
+
+    /* Skills Section */
+    .skills {
+        background: var(--light);
+    }
+
+    .skills-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+    }
+
+    .skill-card {
+        padding: 30px 20px;
+        text-align: center;
+        background: var(--white);
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        transition: 0.3s;
+    }
+
+    .skill-card:hover {
+        transform: translateY(-7px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+        border-color: var(--primary);
+    }
+
+    .skill-icon {
+        font-size: 35px;
+        margin-bottom: 12px;
+    }
+
+    .skill-card h3 {
+        margin-bottom: 10px;
+    }
+
+    .skill-card p {
+        color: var(--text);
+        font-size: 14px;
+    }
+
+    /* Projects Section */
+    .projects {
+        background: var(--white);
+    }
+
+    .projects-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+    }
+
+    .project-card {
+        padding: 28px;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        background: var(--white);
+        transition: 0.3s;
+    }
+
+    .project-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .project-number {
+        font-size: 30px;
+        font-weight: bold;
+        color: #93c5fd;
+        margin-bottom: 12px;
+    }
+
+    .project-card h3 {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
+    .project-card p {
+        color: var(--text);
+        margin-bottom: 18px;
+        font-size: 14px;
+    }
+
+    .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+
+    .project-tags span {
+        padding: 5px 10px;
+        background: #dbeafe;
+        color: #1d4ed8;
+        border-radius: 5px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .project-link {
+        color: var(--primary);
+        font-weight: bold;
+    }
+
+    .project-link:hover {
+        text-decoration: underline;
+    }
+
+    .project-status {
+        color: #64748b;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    /* Contact Section */
+    .contact {
+        background: var(--light);
+    }
+
+    .contact-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        max-width: 1000px;
+        margin: auto;
+    }
+
+    .contact-info h3 {
+        font-size: 25px;
+        margin-bottom: 15px;
+    }
+
+    .contact-info > p {
+        color: var(--text);
+        margin-bottom: 25px;
+    }
+
+    .contact-item {
+        margin-bottom: 15px;
+        overflow-wrap: anywhere;
+    }
+
+    .contact-item strong {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .contact-item a {
+        color: var(--primary);
+    }
+
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        padding: 14px;
+        border: 1px solid #cbd5e1;
+        border-radius: 7px;
+        font-family: inherit;
+        font-size: 15px;
+        background: var(--white);
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+        outline: 2px solid #93c5fd;
+        border-color: var(--primary);
+    }
+
+    .contact-form textarea {
+        resize: vertical;
+    }
+
+    .contact-form .btn {
+        align-self: flex-start;
+    }
+
+    /* Footer */
+    footer {
+        padding: 22px;
+        text-align: center;
+        background: var(--dark);
+        color: var(--white);
+    }
+
+    /* Mobile Responsive Design */
+    @media (max-width: 900px) {
+        .home {
+            flex-direction: column-reverse;
+            text-align: center;
+            padding-top: 60px;
+        }
+
+        .buttons {
+            justify-content: center;
+        }
+
+        .profile-circle {
+            width: 190px;
+            height: 190px;
+        }
+
+        .profile-circle span {
+            font-size: 50px;
+        }
+
+        .about-content,
+        .contact-content {
+            grid-template-columns: 1fr;
+        }
+
+        .skills-container,
+        .projects-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 600px) {
+        .navbar {
+            padding: 15px 5%;
+        }
+
+        .menu-btn {
+            display: block;
+        }
+
+        .nav-links {
+            display: none;
+            position: absolute;
+            top: 75px;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: var(--white);
+            flex-direction: column;
+            align-items: center;
+            gap: 18px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+        .section {
+            padding: 65px 6%;
+        }
+
+        .home h1 {
+            font-size: 36px;
+        }
+
+        .home h2 {
+            font-size: 18px;
+        }
+
+        .section-heading h2 {
+            font-size: 30px;
+        }
+
+        .skills-container,
+        .projects-container {
+            grid-template-columns: 1fr;
+        }
+
+        .about-card,
+        .project-card {
+            padding: 22px;
+        }
+    }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+
+            <h2 class="logo">Neha<span>.</span></h2>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <button class="menu-btn" id="menuBtn"
+                aria-label="Toggle navigation">☰</button>
+
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="home section">
+
+        <div class="home-content">
+
+            <p class="welcome">WELCOME TO MY PORTFOLIO</p>
+
+            <h1>Hi, I'm <span>Neha Porria</span></h1>
+
+            <h2>MCA Student | Frontend Web Developer</h2>
+
+            <p class="intro">
+                I enjoy creating beautiful, responsive and user-friendly
+                websites using modern web technologies.
+            </p>
+
+            <div class="buttons">
+                <a href="#projects" class="btn">View Projects</a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
+
+        </div>
+
+        <div class="home-image">
+            <div class="profile-circle">
+                <span>NP</span>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+
+        <div class="section-heading">
+            <p>GET TO KNOW ME</p>
+            <h2>About Me</h2>
+        </div>
+
+        <div class="about-content">
+
+            <div class="about-card">
+
+                <h3>Who Am I?</h3>
+
+                <p>
+                    Hello! I'm Neha Porria, a BCA graduate currently pursuing
+                    MCA. I am interested in frontend web development and
+                    enjoy learning new technologies.
+                </p>
+
+                <p>
+                    My goal is to build useful, attractive and responsive
+                    websites while continuously improving my programming
+                    and problem-solving skills.
+                </p>
+
+                <a href="#contact" class="btn">Let's Connect</a>
+
+            </div>
+
+            <div class="about-details">
+
+                <div class="detail-box">
+                    <h3>Education</h3>
+                    <p>MCA — Pursuing</p>
+                    <p>BCA — Completed</p>
+                </div>
+
+                <div class="detail-box">
+                    <h3>Interests</h3>
+                    <p>Web Development</p>
+                    <p>Programming</p>
+                </div>
+
+                <div class="detail-box">
+                    <h3>Goal</h3>
+                    <p>Become a skilled developer</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills">
+
+        <div class="section-heading">
+            <p>WHAT I KNOW</p>
+            <h2>My Skills</h2>
+        </div>
+
+        <div class="skills-container">
+
+            <div class="skill-card">
+                <div class="skill-icon">🌐</div>
+                <h3>HTML</h3>
+                <p>Creating the structure of web pages.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">🎨</div>
+                <h3>CSS</h3>
+                <p>Designing attractive and responsive websites.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">⚡</div>
+                <h3>JavaScript</h3>
+                <p>Adding interactivity to websites.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">💻</div>
+                <h3>C++</h3>
+                <p>Learning programming and data structures.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">☕</div>
+                <h3>Java</h3>
+                <p>Learning object-oriented programming.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">📱</div>
+                <h3>Responsive Design</h3>
+                <p>Building websites for different screen sizes.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects">
+
+        <div class="section-heading">
+            <p>MY RECENT WORK</p>
+            <h2>My Projects</h2>
+        </div>
+
+        <div class="projects-container">
+
+            <div class="project-card">
+
+                <div class="project-number">01</div>
+
+                <h3>Personal Portfolio Website</h3>
+
+                <p>
+                    A personal portfolio website to showcase my skills,
+                    projects and educational background.
+                </p>
+
+                <div class="project-tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                </div>
+
+                <a href="https://nehaporria98.github.io/Portfolio-website/"
+                   target="_blank" rel="noopener noreferrer"
+                   class="project-link">
+                    View Project ↗
+                </a>
+
+            </div>
+
+            <div class="project-card">
+
+                <div class="project-number">02</div>
+
+                <h3>Student Management System</h3>
+
+                <p>
+                    A planned project to manage student details,
+                    academic records and other student information.
+                </p>
+
+                <div class="project-tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                </div>
+                  <a href="https://nehaporria98.github.io/Student-Management-System/"
+                   target="_blank" rel="noopener noreferrer"
+                   class="project-link">
+                    View Project ↗
+                  </a>
+                
+
+            </div>
+
+            <div class="project-card">
+
+                <div class="project-number">03</div>
+
+                <h3>Java Programming Practice</h3>
+
+                <p>
+                    A collection of Java programs for practicing
+                    object-oriented programming and core concepts.
+                </p>
+
+                <div class="project-tags">
+                    <span>Java</span>
+                    <span>OOP</span>
+                </div>
+
+                <a href="https://github.com/nehaporria98"
+                   target="_blank" rel="noopener noreferrer"
+                   class="project-link">
+                    Visit GitHub ↗
+                </a>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+
+        <div class="section-heading">
+            <p>LET'S TALK</p>
+            <h2>Contact Me</h2>
+        </div>
+
+        <div class="contact-content">
+
+            <div class="contact-info">
+
+                <h3>Let's Work Together!</h3>
+
+                <p>
+                    Have a project idea or an opportunity?
+                    Feel free to contact me.
+                </p>
+
+                <div class="contact-item">
+                    <strong>Email:</strong>
+                    <a href="mailto:nehaporria985@gmail.com">
+                        nehaporria985@gmail.com
+                    </a>
+                </div>
+
+                <div class="contact-item">
+                    <strong>GitHub:</strong>
+                    <a href="https://github.com/nehaporria98"
+                       target="_blank" rel="noopener noreferrer">
+                        Visit My GitHub
+                    </a>
+                </div>
+
+            </div>
+
+            <form id="contactForm" class="contact-form">
+
+                <input type="text" id="name"
+                    placeholder="Your Name" required>
+
+                <input type="email" id="email"
+                    placeholder="Your Email" required>
+
+                <textarea id="message" rows="5"
+                    placeholder="Your Message" required></textarea>
+
+                <button type="submit" class="btn">Send Message</button>
+
+            </form>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            © <span id="year"></span> Neha Porria.
+            All Rights Reserved.
+        </p>
+    </footer>
+
+    <script>
+
+    // Mobile Navigation Menu
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", function () {
+        navLinks.classList.toggle("active");
+    });
+
+    // Close menu after clicking a navigation link
+    const navigationLinks = document.querySelectorAll(".nav-links a");
+
+    navigationLinks.forEach(function (link) {
+        link.addEventListener("click", function () {
+            navLinks.classList.remove("active");
+        });
+    });
+
+    // Automatically Update Copyright Year
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+    // Contact Form
+    const contactForm = document.getElementById("contactForm");
+
+    contactForm.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        if (!name || !email || !message) {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        const subject = encodeURIComponent(
+            "Portfolio Contact from " + name
+        );
+
+        const body = encodeURIComponent(
+            "Name: " + name +
+            "\nEmail: " + email +
+            "\n\nMessage:\n" + message
+        );
+
+        window.location.href =
+            "mailto:nehaporria985@gmail.com?subject=" +
+            subject + "&body=" + body;
+
+    });
+
+    </script>
+
+</body>
+</html>
